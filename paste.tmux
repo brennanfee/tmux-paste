@@ -37,8 +37,8 @@ set_paste_bindings() {
   local paste_command="$1"
 
   # shellcheck disable=SC2016
-  local set_buffer='tmux set-buffer $('
-  local paste_buffer='); tmux paste-buffer'
+  local set_buffer='tmux set-buffer "$('
+  local paste_buffer=')"; tmux paste-buffer'
 
   if [[ ! -z "$mouse_key_set" ]]; then
     tmux bind-key -T root "$mouse_key_set" run-shell -b "$set_buffer$paste_command$paste_buffer"
