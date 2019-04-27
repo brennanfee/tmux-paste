@@ -1,6 +1,6 @@
 # tmux-paste
 
-Tmux plugin for pasting from the system clipboard.  Works on OSX, Linux, Cygwin, and WSL (Windows Subsystem For Linux).
+Tmux plugin for pasting from the system clipboard.  Works on macOS, Linux, Cygwin, and WSL (Windows Subsystem For Linux).
 
 ## Overview
 
@@ -132,12 +132,18 @@ you can download that, inspect it, and compile it yourself.
 ### Key bindings
 
 By default, this overrides the default <kbd>prefix</kbd>-<kbd>]</kbd> and maps the
-`MouseUp2Pane` mouse action to perform the paste.  In essence, what happens is that BEFORE the
-standard `tmux paste-buffer` command is executed, we first execute the OS specific clipboard
-command to read the system clipboard into the paste buffer.
+`MouseUp2Pane` mouse action (middle button or mouse-wheel click) to perform the paste.  In
+essence, what happens is that BEFORE the standard `tmux paste-buffer` command is executed,
+we first execute the OS specific clipboard command to read the system clipboard into the paste buffer.
 
 If you wish to override the key or mouse action you can set `@paste_key` or `@paste_mouse_key`
 respectively.  To prevent a mapping entirely just set the value to a blank string.
+
+NOTE: If you are not using `tmux-yank` along with `tmux-paste` you may experience some surprising
+behavior as your tmux buffer (which is usually just internal to tmux) will get overridden with the
+system clipboard data.  However, if you are already using `tmux-yank` than the system clipboard
+will already have whatever you last copied to the tmux buffer and we will simply be copying it
+back here.
 
 ### Default and Preferred Clipboard Programs
 
@@ -158,8 +164,6 @@ An example of setting `@override_paste_command`:
 ``` tmux
 # ~/.tmux.conf
 
-set -g @custom_paste_command 'my-clipboard-paste --some-arg'
-# or
 set -g @override_paste_command 'my-clipboard-paste --some-arg'
 ```
 
@@ -176,7 +180,8 @@ You can change this by setting `@paste_selection`:
 set -g @paste_selection 'primary' # or 'secondary' or 'clipboard'
 ```
 
-There is a separate option for a mouse paste, `@paste_selection_mouse`.
+There is a separate option for a mouse paste, `@paste_selection_mouse`, it's default is
+'primary'.
 
 ### Other great tmux plugins
 
