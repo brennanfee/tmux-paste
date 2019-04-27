@@ -1,0 +1,28 @@
+{
+  "name": "tmux-paste",
+  "version": "0.0.1",
+  "description": "Tmux plugin for pasting from the system clipboard.  Works on OSX, Linux, and WSL (Windows Subsystem For Linux)",
+  "repository": "github:brennanfee/tmux-paste",
+  "homepage": "https://github.com/brennanfee/tmux-paste#readme",
+  "bugs": "https://github.com/brennanfee/tmux-paste/issues",
+  "author": "Brennan Fee <brennan@github.mailbots.org> (https://github.com/brennanfee)",
+  "keywords": [],
+  "devDependencies": {
+    "prettier": "^1.13.7"
+  },
+  "dependencies": {},
+  "private": true,
+  "license": "MIT",
+  "prettier": {
+    "printWidth": 100,
+    "trailingComma": "es5",
+    "proseWrap": "always",
+    "semi": false,
+    "singleQuote": true,
+    "requirePragma": false,
+    "insertPragma": false
+  },
+  "scripts": {
+    "test": "echo 'Error: no tests specified' && exit 1"
+  }
+}

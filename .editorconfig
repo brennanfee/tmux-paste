@@ -1,0 +1,42 @@
+# EditorConfig: http://editorconfig.org
+
+# Top-most EditorConfig file
+root = true
+
+# Basic defaults
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = false
+trim_trailing_whitespace = true
+# Not all editors support this
+max_line_length = 100
+
+# Python PEP8, PHP (PSR-2), Perl, Rust
+[*.{py,py3,php,pl,pm,t,PL,rs}]
+indent_size = 4
+
+# Java (Oracle Standard) & Kotlin
+[*.{java,kt,kts}]
+indent_size = 4
+
+# Go (compatible with gofmt)
+[*.go]
+indent_size = tab
+indent_style = tab
+
+# Microsoft languages & PowerShell
+[*.{cs,csx,vb,vbx}]
+indent_size = 4
+
+# PowerShell
+[*.{ps1,psd1,psm1,pssc}]
+indent_size = 4
+
+# Makefiles
+[{Makefile,*.mk,Makefile.*}]
+indent_size = tab
+indent_style = tab
+
