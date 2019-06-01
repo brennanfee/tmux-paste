@@ -116,16 +116,9 @@ $ sudo yum install xsel # or xclip
 ### Windows Subsystem for Linux (WSL)
 
 Microsoft helpfully provides clip.exe as part of the Windows installation.  However, they do not
-include the counterpart (paste.exe).  But, have no fear, the open-source community has you covered.
-
-You can download a paste.exe command from [here](https://www.c3scripts.com/tutorials/msdos/paste.html).
-This file must be copied into the C:\Windows\System32 folder, not just merely on your path (I believe
-for permissions reasons).  While the source site says any place on the path *should* work, in my
-experience it only works if it is in C:\Windows\System32.
-
-If you have concerns about downloading an EXE from the internet and putting it into your system
-directory that is understandable.  The source code (a simple C# file) is available on the site and
-you can download that, inspect it, and compile it yourself.
+include the counterpart as clip.exe is only one-way.  However, PowerShell version 5 and above do
+provide a Get-Clipboard command which works well.  PowerShell 5 comes pre-installed on Windows 10
+and is available for older versions of Windows as a separate install.
 
 ## Configuration
 
