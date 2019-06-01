@@ -88,9 +88,8 @@ cmd_exists() {
 
 clipboard_paste_cmd() {
   # Windows doesn't support getting the clipboard contents by default,
-  # clip.exe is one-way.  A third-party made paste.exe can be used instead,
-  # and you should include that in your path so tmux can find it.
-  # You can find the tool here: https://www.c3scripts.com/tutorials/msdos/paste.html
+  # clip.exe is only one-way.  Powershell 5 and above do provide a command
+  # Get-Clipboard and so that is used here.
   local mouse="${1:-false}"
   if [ -n "$(override_paste_cmd)" ]; then
     override_paste_cmd
@@ -100,8 +99,8 @@ clipboard_paste_cmd() {
     else
       echo "pbpaste"
     fi
-  elif cmd_exists "paste.exe"; then # WSL support using a third-party tool
-    echo "paste.exe"
+  elif cmd_exists "powershell.exe"; then # WSL support using powershell
+    echo "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command Get-Clipboard"
   elif [ -n "$DISPLAY" ] && cmd_exists "xsel"; then
     local xsel_selection
     if [[ $mouse == "true" ]]; then
@@ -124,4 +123,3 @@ clipboard_paste_cmd() {
     custom_paste_cmd
   fi
 }
-
