@@ -109,6 +109,12 @@ $ sudo apt-get install xsel # or xclip
 $ sudo yum install xsel # or xclip
 ```
 
+#### Arch Based Distros
+
+``` sh
+$ sudo pacman -S xsel # or xclip
+```
+
 ### Cygwin
 
 -  (*optional*) `getclip` which is part of the `cygutils-extra` package.
