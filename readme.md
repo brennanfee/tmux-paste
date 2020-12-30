@@ -31,13 +31,13 @@ The easiest way to install `tmux-paste` is via the [Tmux Plugin Manager](https:/
 
 ### Manual Installation
 
-1.  Clone the repository
+1.  Clone the repository.  Change the destination path ~/clone/path to wherever you would like.
 
     ``` sh
     $ git clone https://github.com/brennanfee/tmux-paste ~/clone/path
     ```
 
-2.  Add this line to the bottom of `.tmux.conf`
+2.  Add this line to the bottom of `.tmux.conf`.  Change the path to the one you used in Step 1.
 
     ``` tmux
     run-shell ~/clone/path/paste.tmux
@@ -107,6 +107,12 @@ $ sudo apt-get install xsel # or xclip
 
 ``` sh
 $ sudo yum install xsel # or xclip
+```
+
+#### Arch Based Distros
+
+``` sh
+$ sudo pacman -S xsel # or xclip
 ```
 
 ### Cygwin
