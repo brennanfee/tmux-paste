@@ -82,8 +82,8 @@ display_message() {
 }
 
 cmd_exists() {
-    local command="$1"
-    type "$command" >/dev/null 2>&1
+  local command="$1"
+  type "$command" >/dev/null 2>&1
 }
 
 clipboard_paste_cmd() {
@@ -101,7 +101,9 @@ clipboard_paste_cmd() {
     fi
   elif cmd_exists "powershell.exe"; then # WSL support using powershell
     echo "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command Get-Clipboard"
-  elif [ -n "$DISPLAY" ] && cmd_exists "xsel"; then
+  elif cmd_exists "wl-paste"; then # wl-clipboard: Wayland clipboard utilities
+    echo "wl-paste"
+  elif cmd_exists "xsel"; then
     local xsel_selection
     if [[ $mouse == "true" ]]; then
       xsel_selection="$(paste_selection_mouse)"
@@ -109,7 +111,7 @@ clipboard_paste_cmd() {
       xsel_selection="$(paste_selection)"
     fi
     echo "xsel -o --$xsel_selection"
-  elif [ -n "$DISPLAY" ] && cmd_exists "xclip"; then
+  elif cmd_exists "xclip"; then
     local xclip_selection
     if [[ $mouse == "true" ]]; then
       xclip_selection="$(paste_selection_mouse)"
@@ -123,3 +125,4 @@ clipboard_paste_cmd() {
     custom_paste_cmd
   fi
 }
+

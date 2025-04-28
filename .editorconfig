@@ -9,7 +9,7 @@ charset = utf-8
 end_of_line = lf
 indent_style = space
 indent_size = 2
-insert_final_newline = false
+insert_final_newline = true
 trim_trailing_whitespace = true
 # Not all editors support this
 # max_line_length = 100
@@ -39,4 +39,3 @@ indent_size = 4
 [{Makefile,*.mk,Makefile.*}]
 indent_size = tab
 indent_style = tab
-
